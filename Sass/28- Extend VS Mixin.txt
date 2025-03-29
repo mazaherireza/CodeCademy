@@ -1,0 +1,61 @@
+@Extend vs @Mixin
+Recall that mixins, unlike extended selectors, 
+insert the code inside the selector's rules wherever they are included, 
+only including original code if they are assigning a new value to the rule's properties via an argument. <---- ?
+
+Let's look at the @mixin and @extend constructs closely and compare output:
+
+@mixin no-variable {
+  font-size: 12px;
+  color: #FFF;
+  opacity: .9;
+}
+
+%placeholder {
+  font-size: 12px;
+  color: #FFF;
+  opacity: .9;
+}
+
+span {
+  @extend %placeholder;
+}
+
+div {
+  @extend %placeholder;
+}
+
+p {
+  @include no-variable;
+}
+
+h1 {
+  @include no-variable;
+}
+
+would compile to:
+
+span, div { <-------------------- **
+  font-size: 12px;
+  color: #FFF;
+  opacity: .9;
+}
+
+p {
+  font-size: 12px;
+  color: #FFF;
+  opacity: .9;
+}
+
+h1 {
+  font-size: 12px;
+  color: #FFF;
+  opacity: .9;
+}
+
+We can clearly see extending results in way cleaner and more efficient output 
+with as little repetition as possible.
+
+As a general rule of thumb, you should:
+Try to only create mixins that take in an argument, otherwise you should extend. <------------- **
+Always look at your CSS output to make sure your extend is behaving as you intended. 
