@@ -1,0 +1,31 @@
+%Placeholders
+Sometimes, you may create classes solely for the purpose of extending them and 
+never actually use them inside your HTML. <------------------ **
+Sass anticipated this and allows for a special type of selector called a placeholder, 
+which behaves just like a class or id selector, but uses the % notation instead of # or . <------------ **
+
+Placeholders prevent rules from being rendered to CSS on their own and 
+only become active once they are extended anywhere an id or class could be extended.
+
+a%drink {
+  font-size: 2em;
+  background-color: $lemon-yellow;
+}
+
+.lemonade {
+  @extend %drink; <------------ **
+  //more rules
+}
+
+would translate to
+
+a.lemonade {
+  font-size: 2em;
+  background-color: $lemon-yellow;
+}
+
+.lemonade {
+  //more rules
+}
+
+Placeholders are a nice way to consolidate rules that never actually get used on their own in the HTML.
