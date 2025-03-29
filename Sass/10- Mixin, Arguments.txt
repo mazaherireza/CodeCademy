@@ -1,0 +1,18 @@
+Mixin: Arguments
+Mixins also have the ability to take in a value. 
+An argument, or parameter, is a value passed to the mixin 
+that will be used inside the mixin, such as $visibility in this example:
+
+@mixin backface-visibility($visibility) {
+  backface-visibility: $visibility;
+  -webkit-backface-visibility: $visibility;
+  -moz-backface-visibility: $visibility;
+  -ms-backface-visibility: $visibility;
+  -o-backface-visibility: $visibility;
+}
+
+The syntax to pass in a value is as follows:
+@include backface-visibility(hidden);
+
+..., hidden is passed in to the backface-visibility mixin, 
+where it will be assigned as the value of its argument, $visibility.
