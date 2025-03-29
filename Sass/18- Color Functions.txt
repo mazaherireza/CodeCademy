@@ -1,0 +1,19 @@
+Color Functions
+Sass also allows us to perform mathematical functions to compute measurements, including colors.
+Here is how Sass computes colors:
+
+1. The operation is performed on the red, green, and blue components. 
+2. It computes the answer by operating on every two digits. 
+
+$color: #010203 + #040506;
+
+The above would compute piece-wise as follows:
+
+01 + 04 = 05
+02 + 05 = 07
+03 + 06 = 09
+
+and compile to: color: #050709;
+
+Sass arithmetic can also compute HSLA and string colors such as red and blue. <------------ **
+color: red + blue <------------- pruple
