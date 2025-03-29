@@ -1,0 +1,19 @@
+Conditionals
+In Sass, if() is a function that can only branch one of two ways based on a condition. 
+You can use it inline, to assign the value of a property:
+width: if( $condition, $value-if-true, $value-if-false); <-------------- **
+
+For cases with more than two outcomes, 
+the @if, @else-if, and @else directives allow for more flexibility.
+
+@mixin deck($suit) {
+ @if($suit == hearts || $suit == spades) {
+   color: blue;
+ }
+ @else-if($suit == clovers || $suit == diamonds) {
+   color: red;
+ }
+ @else{
+   <------------ some rule
+ }
+}
