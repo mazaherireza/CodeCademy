@@ -1,0 +1,12 @@
+Organize with Partials
+... are the files you split up to organize specific functionality in the codebase. <------------- **
+They use a _ prefix notation in the file name that tells Sass 
+to hold off on compiling the file individually and instead use it.
+_filename.scss
+
+To use this partial into the main file, 
+or the file that encapsulates the use rules and the bulk of the project styles, omit the underscore. 
+For example, to use a file named _variables.scss, add the following line of code:
+@use "variables";
+
+The global file uses all the components and centralizes the logic.
