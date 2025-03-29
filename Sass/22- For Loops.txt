@@ -1,0 +1,26 @@
+For Loops
+... can be used to style numerous elements or assigning properties all at once. 
+They work like any for-loop you've seen before.
+
+Sass's for loop syntax is as follows:
+
+@for $i from $begin through $end {}
+
+In the example above:
+1. $i is just a variable for the index, or position of the element in the list.
+2. $begin and $end are placeholders for the start and end points of the loop. 
+3. The keywords through and to are interchangeable in Sass.<-------------- **
+
+...
+$total: 10; <---------- Number of .ray divs in our html
+$step: 360deg / $total; <------------- Used to compute the hue based on color-wheel
+
+.ray {
+  height: 30px;
+}
+
+@for $i from 1 through $total {
+  .ray:nth-child(#{$i}) {
+    background: adjust-hue(blue, $i * $step);
+   }
+}
