@@ -1,0 +1,36 @@
+@Extend
+Many times, when styling elements, 
+we want the styles of one class to be applied to another in addition to its own individual styles, 
+so the traditional approach is to give the element both classes. 
+
+<span class="lemonade"></span>
+<span class="lemonade strawberry"></span>
+
+This is a potential bug in maintainability because 
+then both classes always have to be included in the HTML in order for the styles to be applied.
+
+All we have to do is make our strawberry class extend .lemonade and we will no longer have this dilemma.
+
+.lemonade {
+  border: 1px yellow;
+  background-color: #fdd;
+}
+.strawberry {
+  @extend .lemonade; <------------------ **
+  border-color: pink;
+}
+
+If you observe CSS output, you can see how @extend is working to apply the .lemonade rules to .strawberry:
+
+.lemonade, .strawberry {
+  border: 1px yellow;
+  background-color: #fdd;
+}
+
+.strawberry {
+  border-color: pink;
+}
+
+If we think of .lemonade as the extendee, and of .strawberry as the extender, 
+we can then think of Sass appending the extender selector to the rule declarations in the extendee definition. 
+This makes it easy to maintain HTML code by removing the need to have multiple classes on an element. <------ **
