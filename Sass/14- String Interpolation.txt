@@ -1,0 +1,22 @@
+String Interpolation
+..., interpolation is handy when you want to make use of variables in selectors or file names. <---- **
+The notation is as follows:
+
+@mixin photo-content($file) {
+  content: url(#{$file}.jpg); <---------------- **
+  object-fit: cover;
+}
+
+.photo { 
+  @include photo-content('titanosaur');
+  width: 60%;
+  margin: 0px auto; 
+}
+
+String interpolation would enable the following CSS:
+
+.photo { 
+  content: url(titanosaur.jpg);
+  width: 60%;
+  margin: 0px auto; 
+}
