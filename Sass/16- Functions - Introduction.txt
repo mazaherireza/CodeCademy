@@ -1,0 +1,8 @@
+Functions in SCSS
+Functions and operations in Sass allow for computing and iterating on styles.<-------------- **
+
+With Sass functions you can:
+Operate on color values
+Iterate on lists and maps
+Apply styles based on conditions
+Assign values that result from math operations
